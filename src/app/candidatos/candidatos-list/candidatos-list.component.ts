@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { CandidatosService } from '../../candidatos.service';
 import { Candidato } from '../../candidatos';
 
@@ -9,6 +9,9 @@ import { Candidato } from '../../candidatos';
   styleUrl: './candidatos-list.component.css'
 })
 export class CandidatosListComponent implements OnInit {
+
+    @Input() candidato: Candidato | null = null;  
+  
   candidatos = [
     {
       id: 1,
@@ -52,31 +55,44 @@ export class CandidatosListComponent implements OnInit {
     }
   ];
 
-  @Output() candidatoSeleccionado = null
+ 
+  @Output() candidatoSeleccionado: Candidato | null = null;
   seleccionado = false;
   selectedCandidato!: Candidato;
   selected: boolean = false;
+  numero_random: number= 0;
 
   constructor(private candidatoService: CandidatosService) { }
 
   getCandidatos(){
     this.candidatoService.getCandidatos().subscribe(candidatos=>{
-      this.candidatos = candidatos;
+      this.candidatos = candidatos.candidatos;
+      this.calcularPapaRandom();
     })
   }
 
 
-  selectCandidato(candidato: Candidato){
-    this.selectedCandidato = candidato;
-    this.selected = true;
+  seleccionarCandidato(candidato: Candidato) {
+    this.candidatoSeleccionado = candidato;
+    console.log(this.candidatoSeleccionado);
+    this.seleccionado = true;
   }
+  calcularPapaRandom():Candidato{
+    
+    this.candidatoSeleccionado = papaSeleccionado;
+    this.seleccionado = true;
+    return papaSeleccionado;
+    }
+  
+
   
   ngOnInit() {
     this.getCandidatos();
+    this.calcularPapaRandom();
     
   }
 
-} 
+}
 
 
 

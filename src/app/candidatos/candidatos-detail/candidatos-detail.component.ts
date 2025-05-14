@@ -8,7 +8,7 @@ import { Candidato } from '../../candidatos';
   styleUrl: './candidatos-detail.component.css'
 })
 export class CandidatosDetailComponent implements OnInit {
-  @Input() candidato: Candidato | undefined;
+  @Input() candidato!: Candidato ;
 
   constructor() {}
   ngOnInit() {}

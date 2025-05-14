@@ -16,8 +16,8 @@ export class CandidatosService {
 
   constructor(private http: HttpClient) { }
 
-  getCandidatos(): Observable<Candidato[]> {
-    return this.http.get<Candidato[]>(this.apiUrl + '/candidates.json');
+  getCandidatos(): Observable<any> {
+    return this.http.get<any>(this.apiUrl + '/candidates.json');
 
   }
   getCandidato(id: string): Observable<Candidato> {

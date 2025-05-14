@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CandidatosListComponent } from './candidatos-list/candidatos-list.component';
 import { CandidatosDetailComponent } from './candidatos-detail/candidatos-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -11,7 +12,7 @@ import { CandidatosDetailComponent } from './candidatos-detail/candidatos-detail
     CandidatosDetailComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, HttpClientModule
   ],
   exports: [
     CandidatosListComponent
